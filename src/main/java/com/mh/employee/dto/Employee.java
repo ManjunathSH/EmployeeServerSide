@@ -1,7 +1,19 @@
 package com.mh.employee.dto;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Employee")
 public class Employee {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long employeeId;
+	
 	private String employeeName;
 	
 	private String address;
@@ -10,10 +22,20 @@ public class Employee {
 	
 	private String email;
 
+
+
+	public Long getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(Long employeeId) {
+		this.employeeId = employeeId;
+	}
+
 	public String getEmployeeName() {
 		return employeeName;
 	}
-
+	
 	public void setEmployeeName(String employeeName) {
 		this.employeeName = employeeName;
 	}
@@ -44,11 +66,9 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [employeeName=" + employeeName + ", address=" + address + ", phone=" + phone + ", email="
-				+ email + "]";
+		return "Employee [employeeId=" + employeeId + ", employeeName=" + employeeName + ", address=" + address
+				+ ", phone=" + phone + ", email=" + email + "]";
 	}
-	
-	
-	
-	
+
+
 }
